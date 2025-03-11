@@ -12,9 +12,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
+// In your server.js file, replace the CORS middleware with this:
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'https://sunny-narwhal-708596.netlify.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: ['https://sunny-narwhal-708596.netlify.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(helmet());
