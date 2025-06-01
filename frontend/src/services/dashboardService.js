@@ -25,7 +25,7 @@ apiClient.interceptors.request.use(
 // Fetch dashboard data
 export const fetchDashboardData = async (timeRange = '6m') => {
   try {
-    const response = await apiClient.get(`/api/metrics/dashboard?timeRange=${timeRange}`);
+    const response = await apiClient.get(`/api/working/dashboard?timeRange=${timeRange}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching dashboard data:', error);
