@@ -46,6 +46,98 @@ const metricsRoutes = require('./routes/metrics');
 const authRoutes = require('./routes/auth');
 
 // Routes
+
+// Demo Authentication System for IPN Smart City Project
+const DEMO_CREDENTIALS = {
+  'dra.isaura': { 
+    password: 'ipn_smartcity_2024', 
+    role: 'DIRECTOR', 
+    name: 'Dra. Isaura González Rubio Acosta',
+    department: 'CITEDI - IPN',
+    permissions: ['*'] // Full access
+  },
+  'admin': { 
+    password: 'admin123', 
+    role: 'CITY_MANAGER', 
+    name: 'Administrador Municipal',
+    department: 'Gestión Municipal',
+    permissions: ['dashboard:read', 'reports:read', 'reports:export']
+  },
+  'operador': { 
+    password: 'op123', 
+    role: 'OPERATOR', 
+    name: 'Operador de Sistema',
+    department: 'Servicios Públicos',
+    permissions: ['dashboard:read', 'alerts:read']
+  },
+  'publico': { 
+    password: 'demo123', 
+    role: 'PUBLIC_VIEWER', 
+    name: 'Acceso Público',
+    department: 'Ciudadanía',
+    permissions: ['dashboard:read:public']
+  }
+};
+
+// Demo login endpoint
+app.post('/api/auth/demo-login', (req, res) => {
+  const { username, password } = req.body;
+  const user = DEMO_CREDENTIALS[username];
+  
+  if (user && user.password === password) {
+    const token = jwt.sign(
+      { 
+        username, 
+        role: user.role, 
+        name: user.name,
+        department: user.department,
+        permissions: user.permissions
+      },
+      process.env.JWT_SECRET || 'ipn_demo_secret_2024',
+      { expiresIn: '8h' }
+    );
+    
+    res.json({ 
+      token, 
+      user: { 
+        username, 
+        role: user.role, 
+        name: user.name,
+        department: user.department,
+        loginTime: new Date().toISOString()
+      },
+      message: 'Bienvenido al Sistema de Ciudad Inteligente IPN'
+    });
+  } else {
+    res.status(401).json({ 
+      error: 'Credenciales inválidas',
+      message: 'Por favor verifique su usuario y contraseña'
+    });
+  }
+});
+
+// Public demo endpoint (no auth required for presentation)
+app.get('/api/demo/dashboard', (req, res) => {
+  const demoData = {
+    userSatisfaction: { current: 85, trend: 2.5 },
+    adoptionRate: { current: 62, trend: 1.8 },
+    techUtilization: { current: 78, trend: -0.5 },
+    marketCompetitiveness: { current: 7.5, trend: 0.3 },
+    airQuality: { current: 75, trend: -2.1 },
+    energyConsumption: { current: 234, trend: -3.2 },
+    trafficFlow: { current: 82, trend: 1.5 },
+    lastUpdated: new Date().toISOString(),
+    projectInfo: {
+      institution: 'Instituto Politécnico Nacional',
+      center: 'CITEDI - Centro de Investigación y Desarrollo de Tecnología Digital',
+      director: 'Dra. Isaura González Rubio Acosta',
+      project: 'Sistema de Monitoreo de Ciudad Inteligente Beifi'
+    }
+  };
+  res.json(demoData);
+});
+
+
 app.use('/api/metrics', metricsRoutes);
 app.use('/api/auth', authRoutes);
 
