@@ -24,64 +24,64 @@ app.get('/api/working/dashboard', (req, res) => {
       current: 85, 
       trend: 2.5,
       history: Array.from({length: 30}, (_, i) => ({
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        value: 80 + Math.random() * 10
+        x: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        y: 80 + Math.random() * 10
       })).reverse()
     },
     adoptionRate: { 
       current: 62, 
       trend: 1.8,
       history: Array.from({length: 30}, (_, i) => ({
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        value: 55 + Math.random() * 15
+        x: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        y: 55 + Math.random() * 15
       })).reverse()
     },
     techUtilization: { 
       current: 78, 
       trend: -0.5,
       history: Array.from({length: 30}, (_, i) => ({
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        value: 70 + Math.random() * 15
+        x: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        y: 70 + Math.random() * 15
       })).reverse()
     },
     marketCompetitiveness: { 
       current: 7.5, 
       trend: 0.3,
       history: Array.from({length: 30}, (_, i) => ({
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        value: 7 + Math.random() * 1.5
+        x: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        y: 7 + Math.random() * 1.5
       })).reverse()
     },
     airQuality: { 
       current: 75, 
       trend: -2.1,
       history: Array.from({length: 30}, (_, i) => ({
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        value: 65 + Math.random() * 20
+        x: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        y: 65 + Math.random() * 20
       })).reverse()
     },
     energyConsumption: { 
       current: 234, 
       trend: -3.2,
       history: Array.from({length: 30}, (_, i) => ({
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        value: 200 + Math.random() * 70
+        x: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        y: 200 + Math.random() * 70
       })).reverse()
     },
     trafficFlow: { 
       current: 82, 
       trend: 1.5,
       history: Array.from({length: 30}, (_, i) => ({
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        value: 70 + Math.random() * 25
+        x: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        y: 70 + Math.random() * 25
       })).reverse()
     },
         // Investment allocation data for pie chart
     investmentAllocation: [
-      { category: 'Research', value: 35, color: '#FF6384' },
-      { category: 'Development', value: 40, color: '#36A2EB' },
-      { category: 'Marketing', value: 15, color: '#FFCE56' },
-      { category: 'Operations', value: 10, color: '#4BC0C0' }
+      { category: 'Research', y: 35, color: '#FF6384' },
+      { category: 'Development', y: 40, color: '#36A2EB' },
+      { category: 'Marketing', y: 15, color: '#FFCE56' },
+      { category: 'Operations', y: 10, color: '#4BC0C0' }
     ],
     // Innovation metrics for bar chart  
     innovationMetrics: [
