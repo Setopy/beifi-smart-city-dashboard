@@ -76,6 +76,22 @@ app.get('/api/working/dashboard', (req, res) => {
         value: 70 + Math.random() * 25
       })).reverse()
     },
+        // Investment allocation data for pie chart
+    investmentAllocation: {
+      research: 35,
+      development: 40,
+      marketing: 15,
+      operations: 10
+    },
+    // Innovation metrics for bar chart  
+    innovationMetrics: [
+      { month: 'Jan', newFeatures: 5, improvements: 12, research: 3 },
+      { month: 'Feb', newFeatures: 7, improvements: 8, research: 2 },
+      { month: 'Mar', newFeatures: 3, improvements: 15, research: 4 },
+      { month: 'Apr', newFeatures: 8, improvements: 10, research: 1 },
+      { month: 'May', newFeatures: 6, improvements: 14, research: 3 },
+      { month: 'Jun', newFeatures: 9, improvements: 7, research: 5 }
+    ],
     lastUpdated: new Date().toISOString(),
     status: 'SUCCESS - No Authentication Required'
   };
