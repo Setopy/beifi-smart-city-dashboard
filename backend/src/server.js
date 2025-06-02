@@ -78,10 +78,10 @@ app.get('/api/working/dashboard', (req, res) => {
     },
         // Investment allocation data for pie chart
     investmentAllocation: [
-      { category: 'Research', y: 35, color: '#FF6384' },
-      { category: 'Development', y: 40, color: '#36A2EB' },
-      { category: 'Marketing', y: 15, color: '#FFCE56' },
-      { category: 'Operations', y: 10, color: '#4BC0C0' }
+      { category: 'Research', value: 35, color: '#FF6384' },
+      { category: 'Development', value: 40, color: '#36A2EB' },
+      { category: 'Marketing', value: 15, color: '#FFCE56' },
+      { category: 'Operations', value: 10, color: '#4BC0C0' }
     ],
     // Innovation metrics for bar chart  
     innovationMetrics: [
