@@ -125,7 +125,15 @@ const getMockDashboardData = (timeRange) => {
       trend: calculateTrend(current, previous, 'innovationRates'),
       history: trends.map(item => ({ date: item.date, value: item.innovationRates }))
     },
-    trends,
+    trends: trends.map(item => ({
+      date: item.date,
+      userSatisfaction: item.userSatisfaction,
+      adoptionRate: item.adoptionRate,
+      techUtilization: item.techUtilization,
+      marketCompetitiveness: item.marketCompetitiveness,
+      investmentLevels: item.investmentLevels,
+      innovationRates: item.innovationRates
+    })),
     investmentAllocation: [
       { category: 'Research', value: 35 },
       { category: 'Development', value: 40 },
