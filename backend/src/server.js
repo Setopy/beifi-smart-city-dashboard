@@ -22,64 +22,64 @@ app.get('/api/working/dashboard', (req, res) => {
     userSatisfaction: {
       current: 84.4,
       trend: 2.5,
-      history: Array.from({length: 30}, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((80 + Math.random() * 15) * 100) / 100
+      historvalue: Array.from({length: 30}, (_, i) => ({
+        date: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        value: Math.round((80 + Math.random() * 15) * 100) / 100
       }))
     },
     adoptionRate: {
       current: 52.6,
       trend: 1.8,
-      history: Array.from({length: 30}, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((50 + Math.random() * 20) * 100) / 100
+      historvalue: Array.from({length: 30}, (_, i) => ({
+        date: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        value: Math.round((50 + Math.random() * 20) * 100) / 100
       }))
     },
     techUtilization: {
       current: 78.1,
       trend: -0.5,
-      history: Array.from({length: 30}, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((70 + Math.random() * 18) * 100) / 100
+      historvalue: Array.from({length: 30}, (_, i) => ({
+        date: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        value: Math.round((70 + Math.random() * 18) * 100) / 100
       }))
     },
     marketCompetitiveness: {
       current: 7.5,
       trend: 0.3,
-      history: Array.from({length: 30}, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((7 + Math.random() * 2) * 100) / 100
+      historvalue: Array.from({length: 30}, (_, i) => ({
+        date: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        value: Math.round((7 + Math.random() * 2) * 100) / 100
       }))
     },
-    airQuality: {
+    airQualitvalue: {
       current: 76,
       trend: -2.1,
-      history: Array.from({length: 30}, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((65 + Math.random() * 25) * 100) / 100
+      historvalue: Array.from({length: 30}, (_, i) => ({
+        date: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        value: Math.round((65 + Math.random() * 25) * 100) / 100
       }))
     },
     energyConsumption: {
       current: 234,
       trend: -3.2,
-      history: Array.from({length: 30}, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((200 + Math.random() * 80) * 100) / 100
+      historvalue: Array.from({length: 30}, (_, i) => ({
+        date: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        value: Math.round((200 + Math.random() * 80) * 100) / 100
       }))
     },
     trafficFlow: {
       current: 82,
       trend: 1.5,
-      history: Array.from({length: 30}, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((70 + Math.random() * 30) * 100) / 100
+      historvalue: Array.from({length: 30}, (_, i) => ({
+        date: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        value: Math.round((70 + Math.random() * 30) * 100) / 100
       }))
     },
     investmentAllocation: [
-      { category: 'Research', value: 35, color: '#FF6384' },
-      { category: 'Development', value: 40, color: '#36A2EB' },
-      { category: 'Marketing', value: 15, color: '#FFCE56' },
-      { category: 'Operations', value: 10, color: '#4BC0C0' }
+      { categorvalue: 'Research', value: 35, color: '#FF6384' },
+      { categorvalue: 'Development', value: 40, color: '#36A2EB' },
+      { categorvalue: 'Marketing', value: 15, color: '#FFCE56' },
+      { categorvalue: 'Operations', value: 10, color: '#4BC0C0' }
     ],
     innovationMetrics: [
       { month: 'Jan', newFeatures: 5, improvements: 12, research: 3 },
