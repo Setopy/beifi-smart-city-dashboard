@@ -11,7 +11,7 @@ app.use(cors({
 
 app.use(express.json());
 
-// WORKING DASHBOARD ENDPOINT
+// WORKING DASHBOARD ENDPOINT WITH RECHARTS FORMAT
 app.get('/api/working/dashboard', (req, res) => {
   console.log('Dashboard endpoint called successfully!');
   
@@ -68,17 +68,15 @@ app.get('/api/working/dashboard', (req, res) => {
       trend: 1.5
     },
     // Combined history data for Recharts LineChart
-    lineChartData: combinedHistoryData, (_, i) => ({
-        x: new Date(Date.now() - (29-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        y: Math.round((70 + Math.random() * 30) * 100) / 100
-      }))
-    },
+    lineChartData: combinedHistoryData,
+    // Investment allocation data for pie chart
     investmentAllocation: [
       { category: 'Research', value: 35, color: '#FF6384' },
       { category: 'Development', value: 40, color: '#36A2EB' },
       { category: 'Marketing', value: 15, color: '#FFCE56' },
       { category: 'Operations', value: 10, color: '#4BC0C0' }
     ],
+    // Innovation metrics for bar chart
     innovationMetrics: [
       { month: 'Jan', newFeatures: 5, improvements: 12, research: 3 },
       { month: 'Feb', newFeatures: 7, improvements: 8, research: 2 },
@@ -88,7 +86,7 @@ app.get('/api/working/dashboard', (req, res) => {
       { month: 'Jun', newFeatures: 9, improvements: 7, research: 5 }
     ],
     lastUpdated: new Date().toISOString(),
-    status: 'SUCCESS - All Charts Working'
+    status: 'SUCCESS - All Charts Working with Recharts Format'
   };
   
   res.json(data);
@@ -107,9 +105,9 @@ app.get('/health', (req, res) => {
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Beifi Smart City Dashboard API',
-    version: '2.0.0',
+    version: '3.0.0 - Recharts Compatible',
     endpoints: [
-      '/api/working/dashboard - Complete dashboard data',
+      '/api/working/dashboard - Complete dashboard data with Recharts format',
       '/health - Health check'
     ]
   });
@@ -121,4 +119,5 @@ app.listen(PORT, () => {
   console.log(`🚀 Beifi Smart City Dashboard API running on port ${PORT}`);
   console.log(`📊 Dashboard: http://localhost:${PORT}/api/working/dashboard`);
   console.log(`🏥 Health: http://localhost:${PORT}/health`);
+  console.log(`📈 Recharts format ready for line charts!`);
 });
