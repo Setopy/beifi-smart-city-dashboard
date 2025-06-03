@@ -4,10 +4,10 @@
   command = "npm run build"
 
 [context.production]
-  environment = { NODE_ENV = "production", VITE_API_URL = "https://beifi-dashboard-api.onrender.com" }
+  environment = { NODE_ENV = "production", VITE_API_URL = "https://beifi-smart-city-dashboard-1.onrender.com" }
 
 [context.deploy-preview]
-  environment = { NODE_ENV = "development", VITE_API_URL = "https://beifi-dashboard-api-staging.onrender.com" }
+  environment = { NODE_ENV = "development", VITE_API_URL = "https://beifi-smart-city-dashboard-1.onrender.com" }
 
 [[redirects]]
   from = "/*"

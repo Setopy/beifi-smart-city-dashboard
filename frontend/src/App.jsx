@@ -251,7 +251,7 @@ function App() {
                         Key Metrics Trends
                       </Typography>
                       <LineChartComponent 
-                        data={dashboardData?.trends || []} 
+                        data={dashboardData?.lineChartData || []} 
                         lines={['userSatisfaction', 'adoptionRate', 'techUtilization']}
                         xAxisKey="date"
                       />
